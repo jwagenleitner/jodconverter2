@@ -1,0 +1,10 @@
+version = '2.2.2'
+
+
+dependencies {    
+    compile 'commons-io:commons-io:1.4'
+    compile 'org.openoffice:juh:3.0.1'
+    compile 'org.openoffice:jurt:3.0.1'
+    compile 'org.openoffice:ridl:3.0.1'
+    compile 'org.openoffice:unoil:3.0.1'
+}

@@ -1,0 +1,16 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+version = '2.2.2'
+
+dependencies {
+    compile project(':jodconverter-core')
+
+    compile 'xpp3:xpp3_min'
+    compile 'org.springframework:spring-web:2.5.6'
+    compile 'commons-logging:commons-logging:1.1'
+    compile 'commons-logging:commons-logging-api:1.1'
+    compile 'commons-fileupload:commons-fileupload:1.2.1'
+    
+    providedCompile 'javax.servlet:servlet-api:2.4'
+}

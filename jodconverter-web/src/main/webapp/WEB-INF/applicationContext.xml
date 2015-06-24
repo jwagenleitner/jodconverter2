@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+  <bean id="openOfficeConnection" class="com.artofsolving.jodconverter.openoffice.connection.SocketOpenOfficeConnection"
+        destroy-method="disconnect">
+    <!-- OOo port number  -->
+    <constructor-arg>
+      <value>8100</value>
+    </constructor-arg>
+  </bean>
+
+  <bean id="documentFormatRegistry" class="com.artofsolving.jodconverter.XmlDocumentFormatRegistry">
+    <constructor-arg type="java.io.InputStream">
+      <value>classpath:/documentFormats.xml</value>
+    </constructor-arg>
+  </bean>
+
+  <bean id="documentConverter" class="com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConverter">
+    <constructor-arg index="0">
+      <ref bean="openOfficeConnection" />
+    </constructor-arg>
+    <constructor-arg index="1">
+      <ref bean="documentFormatRegistry" />
+    </constructor-arg>
+  </bean>
+
+
+  <!-- File Upload settings -->
+
+  <bean id="fileItemFactory" class="org.apache.commons.fileupload.disk.DiskFileItemFactory" />
+
+  <bean id="fileUpload" class="org.apache.commons.fileupload.servlet.ServletFileUpload">
+    <constructor-arg>
+      <ref bean="fileItemFactory" />
+    </constructor-arg>
+    <property name="sizeMax">
+      <value>4194304</value><!-- 4MB -->
+    </property>
+  </bean>
+
+</beans>

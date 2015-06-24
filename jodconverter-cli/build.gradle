@@ -1,0 +1,7 @@
+version = '2.2.2'
+
+dependencies {
+    compile project(':jodconverter-core')
+
+    compile 'commons-cli:commons-cli:1.2'
+}

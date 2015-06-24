@@ -1,0 +1,5 @@
+rootProject.name = 'jodconverter2'
+
+include 'jodconverter-core',
+        'jodconverter-cli',
+        'jodconverter-web'
