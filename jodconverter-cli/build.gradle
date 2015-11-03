@@ -1,7 +1,17 @@
+plugins {
+  id 'com.github.johnrengelman.shadow' version '1.2.2'
+}
+
 version = '2.2.2'
 
 dependencies {
     compile project(':jodconverter-core')
 
     compile 'commons-cli:commons-cli:1.2'
+}
+
+jar { 
+	manifest {
+		attributes 'Main-Class': 'com.artofsolving.jodconverter.cli.ConvertDocument'
+	}
 }
